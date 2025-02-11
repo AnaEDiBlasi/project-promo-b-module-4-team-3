@@ -23,3 +23,7 @@ INSERT INTO Projects (name, slogan, technologies, repo, demo, photo) VALUES
 ('Elegant', 'Diseños Exclusivos', 'React JS - HTML - CSS', 'www.google.es', 'www.google.es', 'src\images\ebook-example.jpg');
 INSERT INTO Autor  (autor, job, image) VALUES
 ('Emmelie Bjorjlund', 'Full Stack Developer', 'src\images\ebook-example.jpg');
+INSERT INTO Projects (name, slogan, technologies, repo, demo, photo) VALUES
+("Piedra, papel y tijera", "El mejor juego de la historia", "HTML - CSS - JS", "promo_b_modulo_2_PiedraPapelTijera","https://tsalvatellap.github.io/promo_b_modulo_2_PiedraPapelTijera/", "Descargas/photo.jpg");
+INSERT INTO Autor  (autor, job, image) VALUES
+("Tania Salvatella", "Buscavidas", "photo.jpg");
