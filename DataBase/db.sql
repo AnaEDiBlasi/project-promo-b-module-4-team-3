@@ -27,3 +27,12 @@ INSERT INTO Projects (name, slogan, technologies, repo, demo, photo) VALUES
 ("Piedra, papel y tijera", "El mejor juego de la historia", "HTML - CSS - JS", "promo_b_modulo_2_PiedraPapelTijera","https://tsalvatellap.github.io/promo_b_modulo_2_PiedraPapelTijera/", "Descargas/photo.jpg");
 INSERT INTO Autor  (autor, job, image) VALUES
 ("Tania Salvatella", "Buscavidas", "photo.jpg");
+
+INSERT INTO Projects (name, slogan, technologies, repo, demo, photo) VALUES
+('Cuidado con el Grogu', 'Diversión aprendiendo', 'React JS - HTML - CSS', 'https://github.com/AnaEDiBlasi/promo-b-module-3-pair-5-grogu-game', 'https://anaediblasi.github.io/promo-b-module-3-pair-5-grogu-game/', 'photo.jpg');
+INSERT INTO Autor  (autor, job, image) VALUES
+('Ana Elisa Di Blasi', 'Full Stack Developer', 'photo.jpg');
+
+
+
+
