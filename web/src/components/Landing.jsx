@@ -30,6 +30,8 @@ function Landing () {
           <section className="Landing_previewLanding">
             <Card formData = {formData}/>
             <Card formData = {formData}/>
+            <Card formData = {formData}/>
+            <Card formData = {formData}/>
           </section>
         </main>
       </div> 

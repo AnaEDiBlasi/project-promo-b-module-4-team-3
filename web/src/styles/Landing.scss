@@ -7,59 +7,45 @@
   text-align: center;
 }
 
-@media screen and (min-width: 768px) {
-  .Landing_main {
-    max-width: 980px;
-    margin-inline: auto;
-    display: flex;
-    grid-template-columns: 6fr 5fr;
-    gap: 2rem;
-  }
-}
-
 .Landing_container {
-  padding: 22px 22px 0 22px;
+  // padding: 22px 22px 0 22px;
   background-color: $color-dark;
 }
 
 .Landing_intro {
   margin-bottom: 3rem;
-}
-
-@media screen and (min-width: 768px) {
-  .Landing_intro {
-    grid-column: span 2;
-  }
+  margin-top: 25px;
 }
 
 .Landing_intro_title {
-  font: $font-title-big;
+  font-size: 4rem;
   margin-bottom: 8px;
 }
 
-.Landing_intro .Landing_intro_text {
-  font: $font-text-big;
+.Landing_intro_text {
+  font-size: 2rem;
   text-align: center;
-  margin-inline: 4rem;
-  margin-bottom: 1.8rem;
+  margin-inline: 1rem;
+  // margin-bottom: 1.8rem;
 }
 
 .Landing_previewLanding {
-  margin-inline: 20px;
+  // margin-inline: 20px;
+  margin-top: 60px;
   margin-bottom: 80px;
-  transform: translateY(+50px);
+  // transform: translateY(+50px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
-.Landing_previewLanding .card {
-  margin-inline: 20px;
-}
+// .Landing_previewLanding .card {
+//   margin-inline: 20px;
+// }
 
 .Landing_linkProject {
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
 
   display: block;
   width: 180px;
@@ -82,4 +68,42 @@
   );
 
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .Landing_main {
+    max-width: 980px;
+    margin-inline: auto;
+    display: flex;
+    grid-template-columns: 6fr 5fr;
+    // gap: 2rem;
+  }
+
+  .Landing_intro {
+    grid-column: span 2;
+  }
+
+  .Landing_intro_title {
+    font-size: 3rem;
+  }
+
+  .Landing_intro_text {
+    font: $font-text-big;
+  }
+
+  .Landing_previewLanding {
+    // margin-inline: 20px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    // transform: translateY(+50px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .Landing_previewLanding .card {
+    max-width: 436px;
+  }
 }

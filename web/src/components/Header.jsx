@@ -15,7 +15,7 @@ function Header() {
         <img className="header__companyLogo" src={laptop} alt="Logo proyectos molones" />
         <h1 className="header__title">Proyectos Molones</h1>
       </Link>
-      <img className="logoSponsor" src={adalab} alt="Logo Adalab" />
+      <img className="Header_logoSponsor" src={adalab} alt="Logo Adalab" />
     </header>
   );
 }
