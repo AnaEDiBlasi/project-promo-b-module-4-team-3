@@ -62,7 +62,7 @@ function Btn_Photo(props) {
 
   return (
     <>
-    <label htmlFor= {props.htmlFor} className="button">{props.text}</label>
+    <label htmlFor= {props.htmlFor} className="button--large">{props.text}</label>
     <input
         className="addForm__hidden"
         type="file"

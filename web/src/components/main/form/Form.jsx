@@ -116,7 +116,7 @@ const handleClick = (ev) => {
         >
           {isLoading ? "Creando..." : "Crear proyecto"}
         </button>
-         <button type="reset" className="button" onClick={resetForm}>
+         <button type="reset" className="button--large" onClick={resetForm}>
           Resetear formulario
         </button>
         {localError && <p className="error-message">{localError}</p>} 
