@@ -38,7 +38,7 @@ function Form(props) {
 const handleClick = (ev) => {
   ev.preventDefault ();
  if (!props.formData.name || !props.formData.repo || !props.formData.demo) {
-    setLocalError("Por favor, completa todos los campos obligatorios."); 
+    setLocalError("❌ Por favor, completa todos los campos obligatorios."); 
  
     return;
 
@@ -55,12 +55,12 @@ const handleClick = (ev) => {
         props.setProjectUrl(resp.cardURL);
       } else {
         console.log (resp);
-        throw new Error(resp.error || "Error desconocido en la API");
+        throw new Error(resp.error || "❌ Error desconocido en la API");
       }
     })
     .catch((err) => {
       console.error("❌ Error en el formulario:", err);
-      setLocalError(err.message || "Hubo un error al crear el proyecto. Inténtalo de nuevo.");
+      setLocalError(err.message || "❌ Hubo un error al crear el proyecto. Inténtalo de nuevo.");
     })
    
       
@@ -119,7 +119,7 @@ const handleClick = (ev) => {
          <button type="reset" className="button" onClick={resetForm}>
           Resetear formulario
         </button>
-        {localError && <p className="error-message">{localError}</p>} 
+        {localError && <p className="error-message">{localError}</p>}     
         {props.projectUrl && <a className="button" href={props.projectUrl}> Ver tarjeta</a>}
     </fieldset>
     
