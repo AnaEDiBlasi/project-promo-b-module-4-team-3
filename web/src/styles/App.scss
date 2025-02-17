@@ -10,8 +10,8 @@
 
 .button {
   display: block;
-  min-width: 120px;
-  max-width: 150px;
+  min-width: 128px;
+  max-width: 140px;
 
   margin: 8px;
   padding: 5px 18px;
@@ -21,6 +21,7 @@
   text-decoration: none;
   text-align: center;
 
+  border: none;
   border-radius: 40px;
   background-image: linear-gradient(
     to right,
@@ -29,6 +30,10 @@
   );
 
   cursor: pointer;
+
+  &:hover {
+    border: 1px solid $color-white;
+  }
 }
 
 .button--link {
@@ -50,14 +55,17 @@
   border-image-source: linear-gradient(to bottom, #2a2a2a 0%, rgba(0, 0, 0, 0));
   border-image-slice: 1;
   border-radius: 20px;
+  border: none;
   background-color: $color-dark-lilac;
+
+  &:hover {
+    border: 1px solid $color-white;
+  }
 }
 
 .button--large {
   display: block;
-  width: 145px;
-
-  margin-inline: auto;
+  width: 140px;
   margin-block: 8px;
   padding: 5px 18px;
   color: $color-white;
@@ -67,6 +75,7 @@
   text-align: center;
 
   border-radius: 40px;
+  border: none;
   background-color: transparent;
   background-image: linear-gradient(
     to right,
@@ -78,5 +87,5 @@
 }
 
 .button--large:hover {
-  border-color: $color-white;
+  border: 1px solid $color-white;
 }
