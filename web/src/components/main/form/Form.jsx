@@ -90,37 +90,45 @@ const handleClick = (ev) => {
     </fieldset>
 
     <fieldset className="addForm__group--upload">
-      <div>
-        <Btn_Photo  
-        htmlFor="image" 
-        name="image" 
-        text="Subir foto del proyecto" 
-        id= "image" 
-        updateAvatar={props.updateAvatar}/>
-        <p className="form-message">* Tamaño máximo de las fotos: 25MB</p>
-      </div>
-      <div>
-        <Btn_Photo  
-        htmlFor="photo" 
-        name="photo" 
-        text="Subir foto de la autora" 
-        id= "photo" 
-        updateAvatar={props.updateAvatar}/>
-        <p className="form-message">* Tamaño máximo de las fotos: 5MB</p>
-      </div>
+      <div className="upload-container">
+        <div>
+          <Btn_Photo  
+          htmlFor="image" 
+          name="image" 
+          text="Subir foto del proyecto" 
+          id= "image" 
+          updateAvatar={props.updateAvatar}/>
+          <p className="form-message">* Tamaño máximo de las fotos: 25MB</p>
+        </div>
+        <div>
+          <Btn_Photo  
+          htmlFor="photo" 
+          name="photo" 
+          text="Subir foto de la autora" 
+          id= "photo" 
+          updateAvatar={props.updateAvatar}/>
+          <p className="form-message">* Tamaño máximo de las fotos: 5MB</p>
+        </div>
 
-      <button
+      </div>
+      
+      
+      <div className="addForm__buttons">
+        <button
           className="button--large"
           onClick={handleClick}
-          disabled={isLoading}
-        >
+          disabled={isLoading}>
           {isLoading ? "Creando..." : "Crear proyecto"}
         </button>
-         <button type="reset" className="button" onClick={resetForm}>
+
+        <button type="reset" className="button" onClick={resetForm}>
           Resetear formulario
         </button>
+      
+      
         {localError && <p className="error-message">{localError}</p>}     
-        {props.projectUrl && <a className="button" href={props.projectUrl}> Ver tarjeta</a>}
+        {props.projectUrl && (<a className="button" href={props.projectUrl}> Ver tarjeta</a>)}
+      </div>
     </fieldset>
     
   </form>
