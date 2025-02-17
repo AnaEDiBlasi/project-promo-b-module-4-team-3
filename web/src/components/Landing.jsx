@@ -3,19 +3,36 @@ import adalab from '../images/adalab.png';
 import avatar from '../images/avatar.webp';
 import Card from './main/preview/Card';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function Landing () {
-    const formData = {
-      name: "",
-      slogan: "",
-      technologies: "",
-      repo: "",
-      demo: "",
-      desc: "",
-      autor: "",
-      job: "",
-      image: adalab,
-      photo: avatar,
+
+    const [projects, setProjects] = useState([]);
+    // const formData = {
+    //   name: "",
+    //   slogan: "",
+    //   technologies: "",
+    //   repo: "",
+    //   demo: "",
+    //   desc: "",
+    //   autor: "",
+    //   job: "",
+    //   image: adalab,
+    //   photo: avatar,
+    // }
+
+    useEffect(()=> {
+      fetch("http://localhost:4000/projects/list")
+      .then(res => res.json())
+      .then((data) => {
+        setProjects(data.result);
+      })
+    }, [])
+
+    const renderList = ()=> {
+      return projects.map((project, i) => (
+        <Card key={i} formData = {project}/>
+      ));
     }
 
     return (
@@ -28,10 +45,11 @@ function Landing () {
           </section>
           <Link className="Landing_linkProject" to={"/form"}>NUEVO PROYECTO</Link>
           <section className="Landing_previewLanding">
+            {renderList()}
+            {/* <Card formData = {formData}/>
             <Card formData = {formData}/>
             <Card formData = {formData}/>
-            <Card formData = {formData}/>
-            <Card formData = {formData}/>
+            <Card formData = {formData}/> */}
           </section>
         </main>
       </div> 

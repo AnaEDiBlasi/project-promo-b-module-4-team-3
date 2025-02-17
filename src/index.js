@@ -29,7 +29,7 @@ server.get("/projects/list", (req, res) => {
     } else {
         res.status(200).json({
             success:true,
-            res: projectList
+            result: projectList
         })
     }
 })
