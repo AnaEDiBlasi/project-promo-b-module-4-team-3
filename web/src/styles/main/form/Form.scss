@@ -80,7 +80,28 @@ fieldset {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  gap: 10px;
+  width: 100%;
+}
+
+.upload-container {
+  display: flex;
+  justify-content: center;
+  //flex-direction: column;
+  //align-items: center;
+  text-align: center;
+  max-width: 300px;
+  min-width: 150px;
+}
+
+.form-message {
+  font-size: 0.9rem;
+  color: $color-white-50;
+  margin-top: 5px;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .addForm .addForm__hidden {
@@ -91,7 +112,7 @@ fieldset {
   width: calc(100% - 20px);
   margin: 10px auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .addForm .addForm__2col .addForm__input {
@@ -102,6 +123,14 @@ fieldset {
 .error-message {
   padding: 8px;
   color: rgb(254, 24, 24);
+}
+
+.addForm__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 

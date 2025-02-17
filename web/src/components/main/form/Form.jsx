@@ -26,11 +26,13 @@ function Form(props) {
     setIsLoading(false);
   };
 
-  const handleChangeInput = (ev) => {
-    const { name, value } = ev.target;
-    props.changeFormData(name, value);
-    setLocalError((prevErrors) => ({ ...prevErrors, [name]: "" })); // Limpia el error al escribir
-  };
+  const handleChangeInput = (ev) =>{
+    const input = ev.target.name;
+    const value = ev.target.value;
+    props.changeFormData(input, value);
+    setLocalError(""); // Limpia el error al escribir
+  }
+
 
   const handleClick = (ev) => {
     ev.preventDefault();
@@ -149,19 +151,46 @@ function Form(props) {
         />
       </fieldset>
 
-      <fieldset className="addForm__group--upload">
-        <Btn_Photo htmlFor="image" name="image" text="Subir foto del proyecto" updateAvatar={props.updateAvatar} />
-        <Btn_Photo htmlFor="photo" name="photo" text="Subir foto de la autora" updateAvatar={props.updateAvatar} />
-
-        <button className="button--large" onClick={handleClick} disabled={isLoading}>
+    <fieldset className="addForm__group--upload">
+    <div className="upload-container">
+      <div>
+        <Btn_Photo  
+        htmlFor="image" 
+        name="image" 
+        text="Subir foto del proyecto" 
+        id= "image" 
+        updateAvatar={props.updateAvatar}/>
+        <p className="form-message">* Tamaño máximo de las fotos: 25MB</p>
+      </div>
+      <div>
+        <Btn_Photo  
+        htmlFor="photo" 
+        name="photo" 
+        text="Subir foto de la autora" 
+        id= "photo" 
+        updateAvatar={props.updateAvatar}/>
+        <p className="form-message">* Tamaño máximo de las fotos: 5MB</p>
+      </div>
+      </div>
+      <div className="addForm__buttons">
+      <button
+          className="button--large"
+          onClick={handleClick}
+          disabled={isLoading}
+        >
           {isLoading ? "Creando..." : "Crear proyecto"}
         </button>
-        <button type="reset" className="button" onClick={resetForm}>Resetear formulario</button>
+         <button type="reset" className="button" onClick={resetForm}>
+          Resetear formulario
+        </button>
         {localError.form && <p className="error-message">{localError.form}</p>}
-        {props.projectUrl && <a className="button" href={props.projectUrl}>Ver tarjeta</a>}
-      </fieldset>
-    </form>
-  );
+        {props.projectUrl && <a className="button" href={props.projectUrl}> Ver tarjeta</a>}
+    </div>
+    </fieldset>
+    
+  </form>
+    
+  )
 }
 
 export default Form;
