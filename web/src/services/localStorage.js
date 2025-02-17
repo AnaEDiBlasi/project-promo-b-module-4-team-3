@@ -16,14 +16,14 @@ const get = (key, defaultValue) => {
   };
 
   // Función que borra una propiedad del local storage
-  const remove = (key) => {
-    localStorage.removeItem(key);
-  };
+  // const remove = (key) => {
+  //   localStorage.removeItem(key);
+  // };
 
   const objectToExport = {
     get: get,
     set: set,
-    remove: remove,
+    // remove: remove,
     
   };
 
