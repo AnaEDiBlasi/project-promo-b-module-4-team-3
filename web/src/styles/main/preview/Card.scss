@@ -55,6 +55,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+  
 }
 
 .card .card__authorPhoto {
@@ -64,6 +65,7 @@
   background-position: center;
   background-size: cover;
   margin-bottom: 0.8rem;
+  object-fit: cover;
 }
 
 .card .card__job {
