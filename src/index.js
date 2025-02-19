@@ -1,10 +1,24 @@
 const express = require('express');
 const cors = require('cors');
+const mysql = require ('mysql2/promise');
 
 const server = express();
 
 server.use(cors());
 server.use(express.json());
+
+
+async function connectDB (){
+    const conex = await mysql.createConnection ({
+        host: 'sql.freedb.tech', 
+        user: 'freedb_adminAnaElisa',
+        password:'3S4edgz$qcX@UEn',
+        database:'freedb_poryectosMolones',
+    })
+    conex.connect ();
+    return conex;
+}
+
 
 const projectList = [
     {
@@ -58,16 +72,19 @@ const projectList = [
 ];
 
 //endpoints
-
 //devuelve la lista de proyecto
 
-server.get("/projects/list", (req, res) => {
+server.get("/projects/list", async (req, res) => {
+   const conex = await connectDB ();
+   const sql = 'SELECT * FROM project inner autor on projects.fk_autor = id_autor';
+   const [projectList] = await conex.query(sql);
+   
     if (projectList.length === 0){
         res.status(404).json({success:false, error:"No se ha encontrado el recurso"});
     } else {
         res.status(200).json({
             success:true,
-            result: projectList
+            result: projectList,
         })
     }
 })
