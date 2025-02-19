@@ -1,5 +1,3 @@
-
-
 function api(formData) {
     console.log (formData);
     return fetch("https://dev.adalab.es/api/projectCard", {
