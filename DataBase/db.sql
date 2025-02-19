@@ -33,6 +33,12 @@ INSERT INTO Projects (name, slogan, technologies, repo, demo, photo) VALUES
 INSERT INTO Autor  (autor, job, image) VALUES
 ('Ana Elisa Di Blasi', 'Full Stack Developer', 'photo.jpg');
 
+DESCRIBE Projects;
+ALTER TABLE Projects ADD Foreign key (FK_Autor) references Autor (id_Autor);
+DESCRIBE Autor;
+
+SELECT * FROM Projects inner join Autor on Projects.FK_Autor = Autor.id_Autor;
+
 
 
 

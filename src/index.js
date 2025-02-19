@@ -93,25 +93,27 @@ server.get("/projects/list", async (req, res) => {
 server.post('/newproject', async(req, res)=>{
     const newProject = req.body;
     const conex = await connectDB();
-    const insertAutor = 'INSERT INTO Autor(name, image) value (?, ?)'
-    const [resultAutor] = await conex.query(insertAutor, [newProject.name, newProject.image])
+    const insertAutor = 'INSERT INTO Autor(autor, image) value (?, ?)'
+    const [resultAutor] = await conex.query(insertAutor, [newProject.autor, newProject.image])
     //
 
-    const insertProject = 'INSERT INTO Projects(slogan, technologies, repo, demo, photo) values (?,?,?,?,?)';
+    const insertProject = 'INSERT INTO Projects(name,slogan, technologies, repo, demo, photo) values (?,?,?,?,?,?)';
     const [resultproject] = await conex.query(insertProject, [
+        newProject.name,
         newProject.slogan,
         newProject.technologies,
         newProject.repo,
         newProject.demo,
         newProject.photo,
+        resultAutor.insertId,
     ]);
     res.json({
         success: true,
-        // cardURL:,
+        cardURL: `http://localhost:4000/detail ${resultproject.insertId}`
 
     })
 } )
-
+// server.get('/detail/:id', =>{})
 
 
 const PORT = 4000;
