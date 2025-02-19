@@ -89,6 +89,30 @@ server.get("/projects/list", async (req, res) => {
     }
 })
 
+// crear un proyecto nuevo
+server.post('/newproject', async(req, res)=>{
+    const newProject = req.body;
+    const conex = await connectDB();
+    const insertAutor = 'INSERT INTO Autor(name, image) value (?, ?)'
+    const [resultAutor] = await conex.query(insertAutor, [newProject.name, newProject.image])
+    //
+
+    const insertProject = 'INSERT INTO Projects(slogan, technologies, repo, demo, photo) values (?,?,?,?,?)';
+    const [resultproject] = await conex.query(insertProject, [
+        newProject.slogan,
+        newProject.technologies,
+        newProject.repo,
+        newProject.demo,
+        newProject.photo,
+    ]);
+    res.json({
+        success: true,
+        // cardURL:,
+
+    })
+} )
+
+
 
 const PORT = 4000;
 server.listen(PORT, () => {
