@@ -1,4 +1,6 @@
-@import "./variables.scss";
+
+@use "./variables.scss" as *;
+
 
 .footer {
   display: flex;

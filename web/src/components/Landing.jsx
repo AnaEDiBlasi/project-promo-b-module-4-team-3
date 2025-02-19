@@ -1,6 +1,6 @@
 import '../styles/Landing.scss';
-import adalab from '../images/adalab.png';
-import avatar from '../images/avatar.webp';
+// import adalab from '../images/adalab.png';
+// import avatar from '../images/avatar.webp';
 import Card from './main/preview/Card';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';

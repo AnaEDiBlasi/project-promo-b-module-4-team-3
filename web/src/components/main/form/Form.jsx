@@ -134,7 +134,7 @@ function Form(props) {
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre la autora</legend>
         <input 
-           className={`addForm__input ${localError.autor ? 'error' : ''}`}
+          className={`addForm__input ${localError.autor ? 'error' : ''}`}
           type="text" 
           name="autor" 
           placeholder="* Nombre" 

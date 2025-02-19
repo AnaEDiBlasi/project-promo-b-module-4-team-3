@@ -1,4 +1,5 @@
-@import "./variables.scss";
+
+@use "./variables.scss" as *;
 
 .Landing_main {
   display: flex;

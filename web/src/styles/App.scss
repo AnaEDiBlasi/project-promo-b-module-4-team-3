@@ -1,5 +1,5 @@
-@import "./variables.scss";
-// @use "./variables.scss" as vars;
+
+@use "./variables.scss" as *;
 
 .App_container {
   // height: 100vh;

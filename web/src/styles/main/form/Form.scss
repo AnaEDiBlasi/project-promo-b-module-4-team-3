@@ -1,5 +1,5 @@
-@import "../../variables.scss";
 
+@use "../../variables.scss" as *;
 fieldset {
   border: 0;
 }
