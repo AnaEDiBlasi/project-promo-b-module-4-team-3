@@ -36,7 +36,7 @@ function Landing () {
     }
 
     return (
-      <> 
+      <>
       <div className="Landing_container">
         <main className="Landing_main">
           <section className="Landing_intro">

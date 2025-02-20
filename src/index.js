@@ -124,6 +124,7 @@ server.get('/detail/:id', async (req, res) =>{
     conex.end();
 
     res.render('projectDetail', { project: result[0] });
+    console.log(result);
 })
 
 
