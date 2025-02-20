@@ -55,6 +55,7 @@ server.post('/newproject', async(req, res)=>{
         newProject.technologies,
         newProject.repo,
         newProject.demo,
+        newProject.desc,
         newProject.photo,
         resultAutor.insertId,
     ]);
