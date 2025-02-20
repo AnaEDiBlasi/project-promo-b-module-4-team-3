@@ -46,10 +46,6 @@ function Landing () {
           <Link className="Landing_linkProject" to={"/form"}>NUEVO PROYECTO</Link>
           <section className="Landing_previewLanding">
             {renderList()}
-            {/* <Card formData = {formData}/>
-            <Card formData = {formData}/>
-            <Card formData = {formData}/>
-            <Card formData = {formData}/> */}
           </section>
         </main>
       </div> 

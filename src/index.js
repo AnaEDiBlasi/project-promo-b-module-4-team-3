@@ -6,6 +6,7 @@ const server = express();
 
 server.use(cors());
 server.use(express.json());
+server.set('view engine', 'ejs');
 
 
 async function connectDB (){
@@ -113,7 +114,17 @@ server.post('/newproject', async(req, res)=>{
 
     })
 } )
-// server.get('/detail/:id', =>{})
+
+server.get('/detail/:id', async (req, res) =>{
+    const {id} = req.params;
+    const conex = await connectDB();
+    const sql = 'SELECT * FROM Projects WHERE id_Project = ?';
+    const [result] = await conex.query(sql, [id]);
+
+    conex.end();
+
+    res.render('projectDetail', { project: result[0] });
+})
 
 
 const PORT = 4000;
