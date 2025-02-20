@@ -21,57 +21,6 @@ async function connectDB (){
 }
 
 
-// const projectList = [
-//     {
-//         name: "FitLife",
-//         slogan: "Achieve Your Fitness Goals with Personalized Plans",
-//         technologies: "Swift, SwiftUI, Firebase",
-//         repo: "https://github.com/example/fitlife",
-//         demo: "https://fitlife.example.com",
-//         desc: "A mobile app that provides customized fitness plans and tracks your progress.",
-//         autor: "Carlos Lopez",
-//         job: "Mobile App Developer",
-//         image: "https://www.example.com/images/fitlife.jpg",
-//         photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQODJ7ss6BGhUyG8s74ikwx7FVKAm5MBawQGw&s",
-//     },
-//     {
-//         name: "Innovate Hub",
-//         slogan: "Connecting Ideas, Building the Future",
-//         technologies: "React, Node.js, Express, MongoDB",
-//         repo: "https://github.com/example/innovate-hub",
-//         demo: "https://innovate-hub.example.com",
-//         desc: "A platform for entrepreneurs to connect, collaborate, and launch their startups.",
-//         autor: "Alice Johnson",
-//         job: "Software Engineer",
-//         image: "https://www.example.com/images/innovate-hub.jpg",
-//         photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5PzLk-Ah4sF8siEMha7KeQXOGGrBQ5z2pZg&s",
-//     },
-//     {
-//         name: "EcoTrack",
-//         slogan: "Tracking Your Carbon Footprint, Making a Difference",
-//         technologies: "Python, Django, PostgreSQL, Machine Learning",
-//         repo: "https://github.com/example/ecotrack",
-//         demo: "https://ecotrack.example.com",
-//         desc: "An app that helps users track and reduce their environmental impact.",
-//         autor: "Bob Williams",
-//         job: "Data Scientist",
-//         image: "https://www.example.com/images/ecotrack.jpg",
-//         photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ZfI-j6y14EiQAF8_F9W1iM_T28ueZlgulw&s",
-//     },
-//     {
-//         name: "StudyBuddy",
-//         slogan: "Your Personalized Learning Companion",
-//         technologies: "Java, Spring Boot, React, MySQL",
-//         repo: "https://github.com/example/studybuddy",
-//         demo: "https://studybuddy.example.com",
-//         desc: "An application that helps students connect with tutors and study groups.",
-//         autor: "Eva Rodriguez",
-//         job: "Full-Stack Developer",
-//         image: "https://www.example.com/images/studybuddy.jpg",
-//         photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpmrTJWv3Sp1QqxBheAMibngTrNLgKnQxRtQ&s",
-//     }
-// ];
-
 //endpoints
 //devuelve la lista de proyecto
 
@@ -118,7 +67,7 @@ server.post('/newproject', async(req, res)=>{
 server.get('/detail/:id', async (req, res) =>{
     const {id} = req.params;
     const conex = await connectDB();
-    const sql = 'SELECT * FROM Projects WHERE id_Project = ?';
+    const sql = 'SELECT * FROM Projects INNER JOIN Autor ON Projects.FK_Autor = Autor.id_Autor WHERE id_Project= ?';
     const [result] = await conex.query(sql, [id]);
 
     conex.end();
@@ -126,6 +75,13 @@ server.get('/detail/:id', async (req, res) =>{
     res.render('projectDetail', { project: result[0] });
     console.log(result);
 })
+
+server.use(express.static('./css'));
+
+
+//select clients.name, sum(amount) as total
+// from clients inner join sales on sales.fk_client = clients.id
+// group by clients.id
 
 
 const PORT = 4000;
