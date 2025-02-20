@@ -7,14 +7,15 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 server.set('view engine', 'ejs');
+require('dotenv').config();
 
 
 async function connectDB (){
     const conex = await mysql.createConnection ({
-        host: 'sql.freedb.tech', 
-        user: 'freedb_adminAnaElisa',
-        password:'3S4edgz$qcX@UEn',
-        database:'freedb_poryectosMolones',
+        host: process.env.HOSTDB, 
+        user:  process.env.USERDB,
+        password: process.env.PASSDB,
+        database: process.env.DATABASE,
     })
     conex.connect ();
     return conex;
