@@ -1,7 +1,15 @@
+
+body{
+  background-color:#302c42;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .preview{
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .projectImage {
@@ -125,9 +133,13 @@
 }
 
 .icon__www {
-  background-image: url('../../../images/icons/globe-solid.svg');
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-image: url('../web/src/images/icons/globe-solid.svg');
 }
 
 .icon__github {
-  background-image: url('../../../images/icons/github.svg');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-image: url('../web/src/images/icons/github.svg');
 }
