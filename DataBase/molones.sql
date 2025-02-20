@@ -10,6 +10,7 @@ demo TEXT NOT NULL,
 description TEXT NOT NULL,
 photo TEXT 
 );
+ALTER TABLE Projects CHANGE description `desc` TEXT NOT NULL;
 
 CREATE TABLE Autor (
 id_Autor INT AUTO_INCREMENT PRIMARY KEY,
