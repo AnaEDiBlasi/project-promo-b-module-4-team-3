@@ -87,7 +87,7 @@ server.use(express.static('./css'));
 
 const PORT = 4000;
 server.listen(PORT, () => {
-    console.log(`Server is happily running at http://localhost:${PORT}`);
+    console.log(`Server is  happily running at http://localhost:${PORT}`);
 });
 
 const url = './src/public';
