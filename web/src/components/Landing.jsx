@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 function Landing () {
-
+    const apiUrl = import.meta.env.VITE_URL_SERVER;
     const [projects, setProjects] = useState([]);
     // const formData = {
     //   name: "",
@@ -22,7 +22,7 @@ function Landing () {
     // }
 
     useEffect(()=> {
-      fetch("http://localhost:4000/projects/list")
+      fetch(`${apiUrl}/projects/list`)
       .then(res => res.json())
       .then((data) => {
         setProjects(data.result);

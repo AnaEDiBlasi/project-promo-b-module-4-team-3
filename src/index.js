@@ -60,7 +60,7 @@ server.post('/newproject', async(req, res)=>{
     ]);
     res.json({
         success: true,
-        cardURL: `http://localhost:4000/detail ${resultproject.insertId}`
+        cardURL: `http://localhost:4000/detail${resultproject.insertId}`
 
     })
 } )
