@@ -60,7 +60,7 @@ server.post('/newproject', async(req, res)=>{
     ]);
     res.json({
         success: true,
-        cardURL: `http://localhost:4000/detail${resultproject.insertId}`
+        cardURL: `${process.env.URL_SERVER}/detail/${resultproject.insertId}`
 
     })
 } )
@@ -87,7 +87,7 @@ server.use(express.static('./css'));
 
 const PORT = 4000;
 server.listen(PORT, () => {
-    console.log(`Server is happily running at http://localhost:${PORT}`);
+    console.log(`Server is happily running at ${process.env.URL_SERVER}`);
 });
 
 const url = './src/public';

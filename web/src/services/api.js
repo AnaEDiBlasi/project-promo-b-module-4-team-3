@@ -1,6 +1,6 @@
 function api(formData) {
     console.log (formData);
-    return fetch("https://dev.adalab.es/api/projectCard", {
+    return fetch("https://project-promo-b-module-4-team-3.onrender.com/newproject", {
         body: JSON.stringify(formData),
         method: "POST",
         headers: {
