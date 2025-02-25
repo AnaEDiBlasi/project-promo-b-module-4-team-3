@@ -61,7 +61,7 @@ server.post('/newproject', async(req, res)=>{
     ]);
     res.json({
         success: true,
-        cardURL: `${process.env.URL_SERVER}/detail/${resultproject.insertId}`
+        cardURL: `${process.env.URL_SERVER}/project/detail/${resultproject.insertId}`
 
     })
 } )
