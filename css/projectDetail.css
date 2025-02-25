@@ -1,7 +1,13 @@
-.preview{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+body {
+  background-color:#302c42;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  .preview{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   }
   
 .projectImage {
