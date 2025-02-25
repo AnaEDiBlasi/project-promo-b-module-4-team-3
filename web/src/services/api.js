@@ -1,6 +1,7 @@
 function api(formData) {
+    const apiUrl = import.meta.env.VITE_URL_SERVER;
     console.log (formData);
-    return fetch("https://project-promo-b-module-4-team-3.onrender.com/newproject", {
+    return fetch(`${apiUrl}/newproject`, {
         body: JSON.stringify(formData),
         method: "POST",
         headers: {

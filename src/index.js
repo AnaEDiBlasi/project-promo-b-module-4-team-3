@@ -5,7 +5,7 @@ const mysql = require ('mysql2/promise');
 const server = express();
 
 server.use(cors());
-server.use(express.json());
+server.use(express.json({limit:'100mb'}));
 server.set('view engine', 'ejs');
 require('dotenv').config();
 
@@ -44,19 +44,20 @@ server.get("/projects/list", async (req, res) => {
 server.post('/newproject', async(req, res)=>{
     const newProject = req.body;
     const conex = await connectDB();
-    const insertAutor = 'INSERT INTO Autor(autor, image) value (?, ?)'
-    const [resultAutor] = await conex.query(insertAutor, [newProject.autor, newProject.image])
-    //
+    const insertAutor = 'INSERT INTO Autor(autor, photo) value (?, ?)'
+    const [resultAutor] = await conex.query(insertAutor, [newProject.autor, newProject.photo])
+    console.log(resultAutor)
 
-    const insertProject = 'INSERT INTO Projects(name,slogan, technologies, repo, demo, photo) values (?,?,?,?,?,?)';
+    const insertProject = 'INSERT INTO Projects(name,slogan, technologies, repo, demo, image,FK_Autor) values (?,?,?,?,?,?,?)';
     const [resultproject] = await conex.query(insertProject, [
         newProject.name,
         newProject.slogan,
         newProject.technologies,
         newProject.repo,
         newProject.demo,
-        newProject.photo,
+        newProject.image,
         resultAutor.insertId,
+        
     ]);
     res.json({
         success: true,
@@ -72,9 +73,9 @@ server.get('/detail/:id', async (req, res) =>{
     const [result] = await conex.query(sql, [id]);
 
     conex.end();
-
-    res.render('projectDetail', { project: result[0] });
     console.log(result);
+    res.render('projectDetail', { project: result[0] });
+    
 })
 
 server.use(express.static('./css'));
